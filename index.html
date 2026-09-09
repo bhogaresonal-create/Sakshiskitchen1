@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Shashi's Kitchen — a premium dining experience near College Road, Nashik.">
+<title>Shashi's Kitchen | Premium Dining in Nashik</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+:root{--bg:#0b0b0a;--card:#141412;--gold:#d9a441;--gold2:#f3c766;--cream:#f7f0df;--muted:#b8b09e;--line:rgba(217,164,65,.22)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font-family:"DM Sans",sans-serif;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%;object-fit:cover}
+.container{width:min(1180px,92%);margin:auto}
+.nav{position:fixed;z-index:20;top:0;left:0;right:0;background:rgba(8,8,7,.72);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;font-family:"Cormorant Garamond",serif;font-size:27px;font-weight:700}
+.brand img{width:46px;height:46px;border-radius:50%;object-fit:cover;background:#000}
+.links{display:flex;gap:30px;color:#ddd6c6;font-size:14px}
+.links a:hover{color:var(--gold2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;border-radius:999px;background:var(--gold);color:#15110a;font-weight:700;font-size:14px;transition:.25s}
+.btn:hover{transform:translateY(-2px);background:var(--gold2)}
+.btn.outline{background:transparent;color:var(--cream);border:1px solid var(--gold)}
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,6,5,.94) 0%,rgba(6,6,5,.75) 43%,rgba(6,6,5,.25) 100%),url("images/interior-1.jpg") center/cover}
+.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 35%,transparent 0,rgba(0,0,0,.2) 42%,rgba(0,0,0,.6) 100%)}
+.hero-content{position:relative;z-index:2;padding-top:80px;max-width:700px}
+.kicker{color:var(--gold2);text-transform:uppercase;letter-spacing:4px;font-size:12px;font-weight:700;margin-bottom:17px}
+h1{font-family:"Cormorant Garamond",serif;font-size:clamp(60px,8vw,108px);line-height:.88;font-weight:600;letter-spacing:-2px}
+h1 span{color:var(--gold2)}
+.hero p{max-width:580px;color:#d0c7b4;font-size:17px;margin:28px 0 32px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-badge{position:absolute;right:5%;bottom:9%;z-index:3;width:150px;height:150px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;text-align:center;background:rgba(10,10,8,.68);backdrop-filter:blur(8px);font-family:"Cormorant Garamond",serif;font-size:20px;color:var(--gold2)}
+.hero-badge small{display:block;font:10px "DM Sans";letter-spacing:2px;color:#eee}
+.section{padding:105px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:42px}
+.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:3px;font-size:11px;font-weight:700}
+h2{font-family:"Cormorant Garamond",serif;font-size:clamp(42px,5vw,65px);line-height:1;margin-top:10px}
+.section-head p{color:var(--muted);max-width:430px}
+.story{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+.story img{height:520px;border-radius:4px}
+.story .copy{background:var(--card);padding:52px;border:1px solid var(--line)}
+.story .copy p{color:var(--muted);margin:20px 0}
+.signature{font-family:"Cormorant Garamond",serif;font-size:28px;color:var(--gold2);margin-top:28px}
+.gallery{display:grid;grid-template-columns:1.35fr .65fr;gap:14px}
+.gallery img{height:650px;border-radius:4px}
+.gallery .side{display:grid;gap:14px}
+.gallery .side img{height:318px}
+.menu-wrap{background:#0f0f0d;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.menu-card{background:var(--card);padding:28px 30px;border:1px solid rgba(255,255,255,.05)}
+.menu-title{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:13px;margin-bottom:14px}
+.menu-title h3{font-family:"Cormorant Garamond",serif;font-size:31px;color:var(--gold2)}
+.menu-item{display:flex;justify-content:space-between;gap:16px;padding:9px 0;color:#ddd5c5;font-size:14px}
+.price{color:var(--gold2);font-weight:700;white-space:nowrap}
+.feature{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.feature-card{padding:30px;background:linear-gradient(145deg,#171713,#10100e);border:1px solid var(--line);min-height:190px}
+.icon{font-size:26px;color:var(--gold2);margin-bottom:22px}
+.feature-card h3{font-family:"Cormorant Garamond",serif;font-size:27px;margin-bottom:7px}
+.feature-card p{color:var(--muted);font-size:14px}
+.cta{position:relative;overflow:hidden;text-align:center;padding:110px 20px}
+.cta:before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(9,9,7,.82),rgba(9,9,7,.9)),url("images/interior-2.jpg") center/cover}
+.cta>*{position:relative;z-index:1}
+.cta p{color:#c9c0ae;max-width:580px;margin:20px auto 30px}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.contact-card{background:var(--card);border:1px solid var(--line);padding:34px}
+.contact-card h3{font-family:"Cormorant Garamond",serif;font-size:31px;color:var(--gold2);margin-bottom:8px}
+.contact-card p{color:var(--muted)}
+footer{padding:28px 0;border-top:1px solid var(--line);color:#898171;font-size:12px;text-align:center}
+@media(max-width:800px){
+ .links{display:none}.hero{min-height:760px}.hero-content{padding-top:80px}
+ .hero:before{background:linear-gradient(90deg,rgba(6,6,5,.9),rgba(6,6,5,.45)),url("images/interior-1.jpg") center/cover}
+ .hero-badge{width:110px;height:110px;font-size:16px;right:4%;bottom:5%}
+ .story,.gallery,.contact{grid-template-columns:1fr}.story img{height:390px}.story .copy{padding:32px}
+ .gallery img,.gallery .side img{height:330px}.feature,.menu-grid{grid-template-columns:1fr}
+ .section{padding:75px 0}.section-head{display:block}.section-head p{margin-top:18px}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#home"><img src="images/logo.jpg" alt="Shashi's Kitchen logo">SHASHI'S KITCHEN</a>
+    <div class="links">
+      <a href="#about">About</a><a href="#menu">Menu</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+    </div>
+    <a class="btn" href="#contact">Reserve a Table</a>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="container hero-content">
+    <div class="kicker">Fine Food • Warm Ambience • Nashik</div>
+    <h1>A Taste<br>Worth <span>Remembering.</span></h1>
+    <p>Welcome to Shashi's Kitchen — a stylish dining destination near College Road, Nashik, serving comforting favourites in a beautiful atmosphere.</p>
+    <div class="actions">
+      <a class="btn" href="#menu">Explore Menu</a>
+      <a class="btn outline" href="#contact">Plan Your Visit</a>
+    </div>
+  </div>
+  <div class="hero-badge">FRESH<br><small>COOK • EAT • ENJOY</small></div>
+</header>
+
+<section class="section" id="about">
+ <div class="container">
+  <div class="section-head">
+   <div><div class="eyebrow">The Shashi's Kitchen experience</div><h2>Good food.<br>Good mood.</h2></div>
+   <p>From relaxed lunches to memorable dinners, every corner is designed to make your meal feel special.</p>
+  </div>
+  <div class="story">
+   <img src="images/interior-2.jpg" alt="Shashi's Kitchen dining interior">
+   <div class="copy">
+    <div class="eyebrow">Made for moments</div>
+    <p>Settle into a warm, modern space filled with natural light, greenery and inviting wooden tables. Whether you're meeting friends, enjoying a family meal or simply treating yourself, Shashi's Kitchen brings together flavour and ambience.</p>
+    <p>Our menu brings together popular Indian favourites, rolls, wraps, refreshing drinks and satisfying mains — with choices for every mood.</p>
+    <div class="signature">See you at the table.</div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section menu-wrap" id="menu">
+ <div class="container">
+  <div class="section-head">
+   <div><div class="eyebrow">A few favourites</div><h2>Our Menu</h2></div>
+   <p>Prices shown from the supplied menu card. Ask the restaurant for the latest availability.</p>
+  </div>
+  <div class="menu-grid">
+   <div class="menu-card"><div class="menu-title"><h3>Starters</h3><span>01</span></div>
+    <div class="menu-item"><span>Veg Spring Roll</span><span class="price">₹90</span></div>
+    <div class="menu-item"><span>Chicken Spring Roll</span><span class="price">₹120</span></div>
+    <div class="menu-item"><span>Paneer Tikka</span><span class="price">₹150</span></div>
+    <div class="menu-item"><span>Chicken Tikka</span><span class="price">₹180</span></div>
+    <div class="menu-item"><span>Chicken Wings</span><span class="price">₹160</span></div>
+   </div>
+   <div class="menu-card"><div class="menu-title"><h3>Main Course</h3><span>02</span></div>
+    <div class="menu-item"><span>Paneer Butter Masala</span><span class="price">₹180</span></div>
+    <div class="menu-item"><span>Kadai Paneer</span><span class="price">₹170</span></div>
+    <div class="menu-item"><span>Dal Makhani</span><span class="price">₹140</span></div>
+    <div class="menu-item"><span>Veg Biryani</span><span class="price">₹160</span></div>
+    <div class="menu-item"><span>Chicken Biryani</span><span class="price">₹200</span></div>
+    <div class="menu-item"><span>Butter Chicken</span><span class="price">₹220</span></div>
+    <div class="menu-item"><span>Chicken Curry</span><span class="price">₹200</span></div>
+   </div>
+   <div class="menu-card"><div class="menu-title"><h3>Rolls & Wraps</h3><span>03</span></div>
+    <div class="menu-item"><span>Veg Roll</span><span class="price">₹80</span></div>
+    <div class="menu-item"><span>Paneer Roll</span><span class="price">₹100</span></div>
+    <div class="menu-item"><span>Chicken Roll</span><span class="price">₹120</span></div>
+    <div class="menu-item"><span>Chicken Wrap</span><span class="price">₹130</span></div>
+   </div>
+   <div class="menu-card"><div class="menu-title"><h3>Tandoori</h3><span>04</span></div>
+    <div class="menu-item"><span>Tandoori Roti</span><span class="price">₹25</span></div>
+    <div class="menu-item"><span>Butter Roti</span><span class="price">₹30</span></div>
+    <div class="menu-item"><span>Naan</span><span class="price">₹40</span></div>
+    <div class="menu-item"><span>Butter Naan</span><span class="price">₹50</span></div>
+    <div class="menu-item"><span>Garlic Naan</span><span class="price">₹60</span></div>
+    <div class="menu-item"><span>Laccha Paratha</span><span class="price">₹40</span></div>
+   </div>
+   <div class="menu-card"><div class="menu-title"><h3>Drinks</h3><span>05</span></div>
+    <div class="menu-item"><span>Fresh Lime Soda</span><span class="price">₹50</span></div>
+    <div class="menu-item"><span>Mint Mojito</span><span class="price">₹80</span></div>
+    <div class="menu-item"><span>Cold Coffee</span><span class="price">₹90</span></div>
+    <div class="menu-item"><span>Masala Chai</span><span class="price">₹30</span></div>
+   </div>
+   <div class="menu-card" style="padding:0;overflow:hidden"><img src="images/menu.jpg" alt="Shashi's Kitchen menu card" style="height:100%;min-height:300px"></div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="gallery">
+ <div class="container">
+  <div class="section-head"><div><div class="eyebrow">Inside the kitchen</div><h2>Come hungry.<br>Leave happy.</h2></div><p>A glimpse of the welcoming dining atmosphere.</p></div>
+  <div class="gallery">
+   <img src="images/interior-1.jpg" alt="Restaurant dining room">
+   <div class="side"><img src="images/interior-2.jpg" alt="Restaurant interior with guests"><img src="images/logo.jpg" alt="Shashi's Kitchen logo" style="object-fit:contain;background:#050505;padding:35px"></div>
+  </div>
+ </div>
+</section>
+
+<section class="section">
+ <div class="container">
+  <div class="feature">
+   <div class="feature-card"><div class="icon">✦</div><h3>Warm Ambience</h3><p>A polished, comfortable space for casual meals and special moments.</p></div>
+   <div class="feature-card"><div class="icon">✦</div><h3>Plenty of Choice</h3><p>Starters, Indian mains, biryani, rolls, tandoori breads and refreshing drinks.</p></div>
+   <div class="feature-card"><div class="icon">✦</div><h3>Near College Road</h3><p>Conveniently located around one of Nashik's popular dining areas.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="cta">
+ <div class="container">
+  <div class="eyebrow">Your table is waiting</div>
+  <h2>Make your next meal<br>a little more special.</h2>
+  <p>Visit Shashi's Kitchen near College Road, Nashik and enjoy good food in a beautiful setting.</p>
+  <a class="btn" href="#contact">Get in Touch</a>
+ </div>
+</section>
+
+<section class="section" id="contact">
+ <div class="container">
+  <div class="section-head"><div><div class="eyebrow">Visit us</div><h2>Let's dine.</h2></div><p>Replace the contact details below with the restaurant's confirmed phone number and exact address before publishing.</p></div>
+  <div class="contact">
+   <div class="contact-card"><h3>Location</h3><p>Near College Road<br>Nashik, Maharashtra</p></div>
+   <div class="contact-card"><h3>Reservations</h3><p>Phone / WhatsApp number to be added<br><br><a class="btn" href="tel:+910000000000">Call Restaurant</a></p></div>
+  </div>
+ </div>
+</section>
+
+<footer>© 2026 Shashi's Kitchen • Nashik • Designed as a premium restaurant landing page</footer>
+</body>
+</html>
